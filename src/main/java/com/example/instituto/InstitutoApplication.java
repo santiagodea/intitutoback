@@ -10,4 +10,10 @@ public class InstitutoApplication {
 		SpringApplication.run(InstitutoApplication.class, args);
 	}
 
+	@RequestMapping("/")
+    @ResponseBody
+    String home() {
+      return "Hola, esta es la API del Instituto";
+    }
+
 }
