@@ -24,7 +24,7 @@ import com.example.instituto.model.Mark;
 import com.example.instituto.service.MarkService;
 
 @RestController		
-@RequestMapping("/mark")
+@RequestMapping("/api/mark")
 @CrossOrigin(origins = "*", methods= {RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT})
 public class MarkController {
 	@Autowired

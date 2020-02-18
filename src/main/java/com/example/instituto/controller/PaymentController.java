@@ -20,7 +20,7 @@ import com.example.instituto.dto.PaymentDTO;
 import com.example.instituto.service.PaymentService;
 
 @RestController
-@RequestMapping("/payment")
+@RequestMapping("/api/payment")
 @CrossOrigin(origins = "*", methods= {RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT})
 public class PaymentController {
 	@Autowired

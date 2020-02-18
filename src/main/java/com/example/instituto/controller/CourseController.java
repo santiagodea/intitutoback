@@ -22,7 +22,7 @@ import com.example.instituto.service.MarkService;
 import com.example.instituto.service.StudentCourseService;
 
 @RestController
-@RequestMapping("/course")
+@RequestMapping("/api/course")
 @CrossOrigin(origins = "*", methods = { RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT })
 public class CourseController {
 	@Autowired

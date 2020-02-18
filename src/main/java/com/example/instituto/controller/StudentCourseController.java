@@ -19,7 +19,7 @@ import com.example.instituto.dto.StudentCourseDTO;
 import com.example.instituto.service.StudentCourseService;
 
 @RestController
-@RequestMapping("/studentCourse")
+@RequestMapping("/api/studentCourse")
 @CrossOrigin(origins = "*", methods= {RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT})
 public class StudentCourseController {
 	@Autowired
