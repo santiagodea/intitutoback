@@ -7,11 +7,12 @@ import org.springframework.context.NoSuchMessageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.example.instituto.dto.CourseDTO;
 import com.example.instituto.dto.CourseWithStudentsDTO;
@@ -20,9 +21,8 @@ import com.example.instituto.service.CourseService;
 import com.example.instituto.service.MarkService;
 import com.example.instituto.service.StudentCourseService;
 
-@RestController
-@RequestMapping("/course")
-@CrossOrigin(origins = "*", methods = { RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT })
+
+
 public class CourseController {
 	@Autowired
 	private CourseService courseService;
@@ -33,12 +33,15 @@ public class CourseController {
 	@Autowired
 	private StudentCourseService studentCourseService;
 
-	@RequestMapping(method = RequestMethod.POST)
+	@CrossOrigin
+	@PostMapping
 	public ResponseEntity<CourseDTO> create(@RequestBody CourseDTO courseDTO) {
 		courseDTO = this.courseService.create(courseDTO);
 		return new ResponseEntity<CourseDTO>(courseDTO, HttpStatus.CREATED);
 	}
 
+	@CrossOrigin
+	@GetMapping
 	@RequestMapping(value = "/findById/{id}", method = RequestMethod.GET)
 	public ResponseEntity<CourseDTO> findById(@PathVariable("id") long id) throws NoSuchMessageException {
 		CourseDTO courseDTO = this.courseService.findById(id);
@@ -47,7 +50,9 @@ public class CourseController {
 		}
 		return new ResponseEntity<CourseDTO>(courseDTO, HttpStatus.OK);
 	}
-
+	
+	@CrossOrigin
+	@GetMapping
 	@RequestMapping(value = "/findAll", method = RequestMethod.GET)
 	public ResponseEntity<List<CourseDTO>> findAll() throws NoSuchMessageException {
 		List<CourseDTO> coursesDTO = this.courseService.findAll();
