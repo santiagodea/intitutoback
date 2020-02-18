@@ -1,0 +1,60 @@
+@url = http://localhost:8080/mark
+
+# agrego una nota
+###
+POST {{url}} HTTP/1.1
+content-type: application/json
+
+{
+    "calification": 9,
+    "unit": 7,
+    "date": "2019-10-07",
+    "idStudentCourse": 4
+}
+
+# consultos todos los nota que tengo
+###
+GET  {{url}}/findAll HTTP/1.1
+
+# consulto un nota especifico
+###
+GET {{url}}/findById/1 HTTP/1.1
+
+#  borro un nota por un id :(
+###
+PUT  {{url}}/deleteById/1
+
+# update de un nota
+###
+PUT {{url}}/update HTTP/1.1
+content-type: application/json
+
+{
+    "id": 1,
+  "calification": 10.0,
+  "unit": 2,
+  "date": "2020-01-23",
+  "idStudentCourse": 1,
+  "date_deleted": null
+}
+
+### 
+GET {{url}}/marksBySC/ HTTP/1.1
+content-type: application/json
+
+{
+    "idCourse": 1,
+    "idStudent": 1
+}
+
+### 
+POST {{url}}/addMark/ HTTP/1.1
+content-type: application/json
+
+{
+    "idCourse": 1,
+    "idStudent": 1,
+    "unit": 7,
+    "mark": 3,
+    "date": "2019-11-19"
+}

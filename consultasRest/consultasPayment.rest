@@ -1,0 +1,42 @@
+@url = http://localhost:8080/payment
+
+# agrego una pago
+###
+POST {{url}} HTTP/1.1
+content-type: application/json
+
+{
+  "month": "Enero",
+  "date_payment": "2019-10-12",
+  "amount": 100.0,
+  "idStudent": 5
+}
+
+# consultos todos los pago que tengo
+###
+GET  {{url}}/findAll HTTP/1.1
+
+# consulto un pago especifico
+###
+GET {{url}}/findById/3 HTTP/1.1
+
+#  borro un pago por un id :(
+###
+PUT  {{url}}/deleteById/4
+
+# update de un pago
+###
+PUT {{url}}/update HTTP/1.1
+content-type: application/json
+
+{
+  "id": 5,
+  "month": "Enero",
+  "date_payment": "2019-10-12",
+  "amount": 150.0,
+  "idStudent": 5
+}
+
+# consulto un pago especifico
+###
+GET {{url}}/paymentsByStudent/1 HTTP/1.1
