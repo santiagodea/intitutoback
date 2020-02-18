@@ -44,6 +44,7 @@ public class InstitutoApplicationTests {
 	void contextLoads() {
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testA() {
 
